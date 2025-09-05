@@ -1,0 +1,25 @@
+framework module TSFdn {
+    umbrella header "TSFdn.h"
+    
+    export *
+    module * { export * }
+    
+    // 链接FFmpeg库（通过ffmpeg-ios依赖提供）
+    link "avformat"
+    link "avcodec" 
+    link "avutil"
+    link "swscale"
+    link "swresample"
+    
+    // 系统框架
+    link "Foundation"
+    link "UIKit"
+    
+    // 如果需要使用CommonCrypto（用于TSDecryptor）
+    link "CommonCrypto"
+}
+
+module TSFdn.Swift {
+  header "TSFdn-Swift.h"
+  requires objc
+}
