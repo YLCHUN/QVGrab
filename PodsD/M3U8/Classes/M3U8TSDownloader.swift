@@ -253,7 +253,7 @@ class M3U8TSDownloader {
         _ = removeFile(keyFilePath)
     }
     
-    func createDownloader(url:String, filePath:String, progress: @escaping (Float) -> Void, machine: ((String) -> (String?, Error?))? = nil, completion: @escaping (Error?) -> Void) -> M3U8DownloaderProtocol? {
+    private func createDownloader(url:String, filePath:String, progress: @escaping (Float) -> Void, machine: ((String) -> (String?, Error?))? = nil, completion: @escaping (Error?) -> Void) -> M3U8DownloaderProtocol? {
         if FileManager.default.fileExists(atPath: filePath) {
             progress(1)
             completion(nil)
